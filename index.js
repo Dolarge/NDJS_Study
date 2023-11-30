@@ -1,1 +1,12 @@
-console.log("노드Js 프로젝트 시작 ")
+//figlet 선언
+var figelt = require("figlet");
+
+
+figelt('Hello World', function(err,data){
+if(err){
+    console.log("Something went wrong...");
+    console.dir(err);
+    return;
+    }
+    console.log(data)
+});
