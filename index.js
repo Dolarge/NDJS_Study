@@ -20,9 +20,11 @@ app.get('/cat', (req, res) => {
 //get 방식으로 쿼리또는 파라미터로 값을 전달해 줄 수 있다.
 //파라미터를 받을때는 앞에 : 붙여야함
 app.get('/user/:id', (req, res) => {
-  const q= req.params
+  // const q= req.params
+  // console.log(q)
+  const q = req.query
   console.log(q)
-
+  
   res.json({'userid':q.id})
 })
 
