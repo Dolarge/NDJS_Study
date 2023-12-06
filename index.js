@@ -9,8 +9,25 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/dog', (req, res) => {
-    res.send({'사운드':'멍멍'})
+app.get('/sound/:name', (req, res) => {
+  const {name} = req.params
+  
+  if(name == "dog"){
+    res.json({'사운드':'멍멍'})
+  } else if (name == "cat"){
+    res.json({'사운드':'야옹'})
+  
+  } else if (name == "duck"){
+    res.json({'사운드':'꿱꿱'})
+  
+  } else if (name == "wolf"){
+    res.json({'사운드':'아울'})
+  
+  } else  {
+    res.json({'사운드':'기타'})
+  }
+
+
 })
 
 app.get('/cat', (req, res) => {
@@ -24,10 +41,20 @@ app.get('/user/:id', (req, res) => {
   // console.log(q)
   const q = req.query
   console.log(q)
-  
+
   res.json({'userid':q.id})
 })
 
+
+app.use(express.json());
+app.post('/user/:id', (req,res)=>{
+  const p = req.params
+  console.log(p)
+  const b = req.body
+  console.log(b)
+
+  res.send({'message':'Hello wolrd'});
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
