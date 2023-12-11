@@ -1,6 +1,10 @@
 const express = require('express')
+var cors = require('core')
 const app = express()
 const port = 3000
+
+//app안에 cors를 허용해주겠다. ()안에 조건 설정이 가능하다.
+app.use(cors())
 
 //기본값으로 라우팅되면 아래와 같이 표시하겠다.
 //res : 응답, 응답에 hello world를 표시하겠다.
@@ -8,6 +12,7 @@ const port = 3000
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
 
 app.get('/sound/:name', (req, res) => {
   const {name} = req.params
